@@ -73,7 +73,7 @@ def make_order(user_order):
 
     order_cost = MENU[user_order]["cost"]
     global profit
-    profit = profit + order_cost
+    profit += order_cost
 
     print(f"Here's your {user_order}.")
 
