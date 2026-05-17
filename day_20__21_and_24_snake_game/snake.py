@@ -18,20 +18,6 @@ class Snake:
 
     def create_snake(self):
         for snake_link in range(3):
-            # new_snake_link = Turtle("square")
-            # new_snake_link.color("white")
-            # new_snake_link.up()
-
-            # self.snake_segments.append(new_snake_link)
-            # self.snake_segments[snake_link].goto(
-            #     self.last_link_pos_x, self.last_link_pos_y
-            # )
-            # self.snake_segments[snake_link].goto(
-            #     self.snake_segments[snake_link].xcor() - 20,
-            #     self.snake_segments[snake_link].ycor(),
-            # )
-            # self.last_link_pos_x = self.snake_segments[snake_link].xcor()
-            # self.last_link_pos_y = self.snake_segments[snake_link].ycor()
             self.add_segment()
 
     def move(self):
@@ -72,3 +58,6 @@ class Snake:
 
         self.last_link_pos_x = new_snake_link.xcor()
         self.last_link_pos_y = new_snake_link.ycor()
+
+    def reset_snake(self):
+        self.snake_head.goto(0, 0)

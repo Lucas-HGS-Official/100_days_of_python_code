@@ -5,6 +5,8 @@ from food import Food
 from scoreboard import ScoreBoard
 from snake import Snake
 
+is_game_start = True
+
 
 def main():
     if __name__ == "__main__":
@@ -14,9 +16,11 @@ def main():
         screen.title("Viper Game")
         screen.tracer(0)
 
+        global snake
         snake = Snake()
         food = Food()
 
+        global scoreboard
         scoreboard = ScoreBoard()
 
         screen.listen()
@@ -27,8 +31,11 @@ def main():
 
         screen.onkey(key="Escape", fun=screen.bye)
 
-        is_game_start = True
+        global is_game_start
+        is_game_start = is_game_start
+
         while is_game_start:
+            print(is_game_start)
             snake.move()
             screen.update()
             time.sleep(0.15)
@@ -52,7 +59,17 @@ def main():
                     is_game_start = False
                     scoreboard.game_over()
 
+            if not is_game_start:
+                screen.onkeypress(key="Return", fun=reset_game)
+
         screen.exitonclick()
+
+
+def reset_game():
+    scoreboard.reset_score()
+    snake.reset_snake()
+    global is_game_start
+    is_game_start = True
 
 
 main()
