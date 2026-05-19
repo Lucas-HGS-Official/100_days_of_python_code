@@ -1,16 +1,7 @@
 {
   "languages": {
     "Python": {
-      "language_servers": ["bypyright"],
-    },
-  },
-  "lsp": {
-    "bypyright": {
-      "settings": {
-        "python": {
-          "pythonPath": "learning_python_env/bin/python3",
-        },
-      },
+      "language_servers": ["basedpyright", "pylsp", "!pyright", "ruff"],
     },
   },
 }

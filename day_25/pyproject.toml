@@ -1,0 +1,6 @@
+[tool.pyright]
+venvPath = "."
+venv = "learning_python_env"
+
+[tool.ruff]
+line-length = 100
