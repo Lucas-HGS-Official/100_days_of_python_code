@@ -4,6 +4,8 @@ import random
 import tkinter as tk
 from tkinter import messagebox
 
+import pyperclip
+
 
 def generate_password():
     letters = [
@@ -77,6 +79,7 @@ def generate_password():
     password = "".join(password_list)
     password_entry.delete(0, tk.END)
     password_entry.insert(tk.END, password)
+    pyperclip.copy(password)
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
