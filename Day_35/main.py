@@ -12,8 +12,8 @@ TWILIO_TOKEN = os.environ.get("TWILIO_TOKEN")
 TWILIO_SENDER = os.environ.get("TWILIO_SENDER")
 TWILIO_RECEIVER = os.environ.get("TWILIO_RECEIVER")
 
-LAT_SP = os.environ.get("LOCAL_LAT")
-LNG_SP = os.environ.get("LOCAL_LNG")
+LAT_SP = os.environ.get("LAT_SP")
+LNG_SP = os.environ.get("LNG_SP")
 
 
 if __name__ == "__main__":
