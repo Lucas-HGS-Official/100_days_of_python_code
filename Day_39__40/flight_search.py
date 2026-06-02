@@ -3,6 +3,7 @@ import os
 import requests
 from dotenv import load_dotenv
 
+# Load environment variables from .env file
 load_dotenv()
 
 SERPAPI_ENDPOINT = "https://serpapi.com/search"
@@ -12,7 +13,23 @@ class FlightSearch:
     def __init__(self):
         self._api_key = os.environ["SERPAPI_API_KEY"]
 
-    def check_flights(self, origin_city_code, destination_city_code, from_time, to_time):
+    def check_flights(
+        self, origin_city_code, destination_city_code, from_time, to_time, is_direct=True
+    ):
+        """
+        Searches for flight options between two cities on specified dates
+        using the SerpAPI Google Flights engine.
+
+        Parameters:
+            origin_city_code (str): The IATA code of the departure city.
+            destination_city_code (str): The IATA code of the destination city.
+            from_time (datetime): The departure date.
+            to_time (datetime): The return date.
+            is_direct (bool): True for non-stop flights only. Default is True.
+
+        Returns:
+            dict or None: A dictionary containing flight data if successful; None if there is an error.
+        """
         query = {
             "engine": "google_flights",
             "departure_id": origin_city_code,
@@ -24,6 +41,9 @@ class FlightSearch:
             "currency": "GBP",
             "api_key": self._api_key,
         }
+
+        if is_direct:
+            query["stops"] = "1"
 
         response = requests.get(url=SERPAPI_ENDPOINT, params=query)
 
