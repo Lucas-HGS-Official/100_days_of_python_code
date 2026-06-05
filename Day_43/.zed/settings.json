@@ -1,0 +1,14 @@
+{
+  "languages": {
+    "Python": {
+      "language_servers": ["basedpyright", "ruff", "!pylsp"],
+    },
+  },
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis.autoImportCompletions": false,
+      },
+    },
+  },
+}
