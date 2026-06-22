@@ -15,9 +15,9 @@ def home():
     return render_template("index.html", all_posts=posts)
 
 
-@app.route("/index.html")
-def index():
-    return render_template("index.html", all_posts=posts)
+# @app.route("/index.html")
+# def index():
+#     return render_template("index.html", all_posts=posts)
 
 
 @app.route("/contact.html")
